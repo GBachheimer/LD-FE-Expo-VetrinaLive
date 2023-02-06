@@ -9,7 +9,7 @@ import { FormTemplateProps } from './types';
 import { styles } from './FormTemplate.style';
 
 const FormTemplate = (props: FormTemplateProps) => {
-    const { navigation, children, submitText, submitAction, divider, footerText1, footerText2, footerLink, extraOptions, title, subtitle } = props;
+    const { navigation, children, submitText, submitAction, divider, footerText1, footerText2, footerLink, extraOptions, title, subtitle, footerAction } = props;
 
     return (
         <>
@@ -20,10 +20,12 @@ const FormTemplate = (props: FormTemplateProps) => {
             </TouchableOpacity>}
             {divider && <Divider />}
             {extraOptions && <ExtraOptions />}
+            { footerText2 && <TouchableOpacity onPress = {() => navigation.navigate('ForgotPassword')}>
+                <Text style = {styles.resetPass}>{footerText1}</Text>
+            </TouchableOpacity> }
             {footerLink && <View style = {styles.formFooter}>
-                { footerText1 ? <Text>{footerText1} </Text> : null }
-                { footerText2 ? <Text>{footerText2} </Text> : null }
-                <TouchableOpacity onPress = {() => navigation.navigate('Login')}>
+                { footerText2 ? <Text>{footerText2} </Text> : footerText1 ? <Text>{footerText1} </Text> : null }
+                <TouchableOpacity onPress = {footerAction}>
                     <Text style = {styles.redirect}>{footerLink}</Text>
                 </TouchableOpacity>
             </View>}
