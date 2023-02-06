@@ -1,12 +1,12 @@
-import React, { FC } from 'react'
+import React, { FC, ReactElement } from 'react'
 import { StyleSheet } from 'react-native'
 import Constants from 'expo-constants';
 import { Text, View } from '../Themed';
 import useColorScheme from 'src/hooks/useColorScheme';
 
 type HeaderProps = {
-    navigation: any;
-    children: React.ReactNode;
+    navigation?: any;
+    children?: React.ReactNode | ReactElement;
 }
 
 const Header = (props: HeaderProps) => {

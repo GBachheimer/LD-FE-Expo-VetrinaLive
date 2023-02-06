@@ -3,28 +3,24 @@ import React, { createContext, useState } from 'react'
 import { auth } from 'src/config/firebase';
 
 type authContextType = {
-    user: boolean;
+    user?: boolean;
 };
 
 type Props = {
     children: React.ReactNode,
 };
 
-const authContextDefaultValues: authContextType = {
-    user: false,
-};
-
-export const AuthContext = createContext<authContextType>(authContextDefaultValues);
+export const AuthContext = createContext<authContextType>({user: false});
 
 export const AuthProvider = ({children}: Props) => {
-    const [user, setUser] = useState<boolean>(false);
+    const [user, setUser] = useState<boolean>();
 
     onAuthStateChanged(auth, (user) => {
         if (user) {
-          setUser(true);
+            setUser(true);
         } else {
-          setUser(false)
-        };
+            setUser(false);
+        }
     });
 
     return (
