@@ -1,79 +1,35 @@
 import React from 'react'
 import { Text, View } from 'src/components/Themed';
-import { StyleSheet, TouchableOpacity } from 'react-native';
-import { TextInput } from 'react-native';
-import { Divider } from '@rneui/themed';
+import { TouchableOpacity } from 'react-native';
+import Divider from './components/Divider';
+import FormHeader from './components/FormHeader';
+import ExtraOptions from './components/ExtraOptions';
+import Support from './components/Support';
+import { FormTemplateProps } from './types';
+import { styles } from './FormTemplate.style';
 
-const FormTemplate = () => {
+const FormTemplate = (props: FormTemplateProps) => {
+    const { navigation, children, submitText, submitAction, divider, footerText1, footerText2, footerLink, extraOptions, title, subtitle } = props;
+
     return (
-    <>
-        <Text style = {styles.title}>Title</Text>
-    </>
+        <>
+            <FormHeader title = {title} subtitle = {subtitle}/>
+            {children}
+            {submitAction && <TouchableOpacity style = {styles.submit} onPress = {submitAction}>
+                <Text style = {styles.submitText}>{submitText}</Text>
+            </TouchableOpacity>}
+            {divider && <Divider />}
+            {extraOptions && <ExtraOptions />}
+            {footerLink && <View style = {styles.formFooter}>
+                { footerText1 ? <Text>{footerText1} </Text> : null }
+                { footerText2 ? <Text>{footerText2} </Text> : null }
+                <TouchableOpacity onPress = {() => navigation.navigate('Login')}>
+                    <Text style = {styles.redirect}>{footerLink}</Text>
+                </TouchableOpacity>
+            </View>}
+            <Support />
+        </>
     );
 };
-
-const styles = StyleSheet.create({
-	container: {
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-    },
-    subtitle: {
-
-    },
-    submit: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#21B8F9',
-        borderRadius: 8,
-        marginTop: 10,
-        width: '100%',
-        height: 48,
-    },
-    submitText: {
-        color: 'white'
-    },
-    submitText2: {
-        color: 'black'
-    },
-    surname: {
-        width: '100%',
-        borderWidth: 1,
-        borderColor: '#0A254052',
-        borderRadius: 8,
-        height: 48,
-        padding: 10,
-        marginTop: 10,
-    },
-    separator: {
-        marginTop: 20,
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    divider: {
-        borderBottomColor: 'black',
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        width: '40%',
-    },
-    dividerMarginR: {
-        marginRight: '5%',
-    },
-    dividerMarginL: {
-        marginLeft: '5%',
-    },
-    extraSubmit: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderWidth: 1,
-        borderColor: '#21B8F9',
-        borderRadius: 8,
-        marginTop: 10,
-        width: '100%',
-        height: 48,
-    },
-});
 
 export default FormTemplate
