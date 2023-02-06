@@ -12,4 +12,5 @@ export type FormTemplateProps = {
     footerText1: string,
     footerText2?: string,
     footerLink: string,
+    footerAction: ((event: GestureResponderEvent) => void) | undefined,
 };

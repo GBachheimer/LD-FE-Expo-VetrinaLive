@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { FC } from 'react';
-import Login from 'src/screens/Login';
-import SignUp from 'src/screens/SignUp';
-import ForgotPassword from 'src/screens/ForgotPassword';
+import Login from 'src/screens/Login/Login';
+import SignUp from 'src/screens/SignUp/SignUp';
+import ForgotPassword from 'src/screens/ForgotPassword/ForgotPassword';
 import Dashboard from 'src/screens/Dashboard';
 import Product from 'src/screens/Product';
 import Payments from 'src/screens/Payments';

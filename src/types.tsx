@@ -9,7 +9,7 @@ declare global {
 }
 
 export type RootStackParamList = {
-  SignUp: {} | undefined;
+  SignUp: {navigation: any} | undefined;
   Login: undefined;
   ForgotPassword: undefined;
   Admin: undefined;
@@ -27,12 +27,14 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
   Screen
 >;
 
-export type SignUpScreenProps = NativeStackScreenProps<
-	RootStackParamList,
-	'SignUp'
->;
+export type SignUpScreenProps = {
+	navigation: any,
+};
 
-export type HeaderScreenProps = NativeStackScreenProps<
-	RootStackParamList,
-	'Header'
->;
+export type LoginScreenProps = {
+    navigation: any
+};
+
+export type ForgotPasswordScreenProps = {
+    navigation: any,
+}
