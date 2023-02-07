@@ -34,7 +34,7 @@ const Login = (props: LoginScreenProps) => {
                     title = 'Welcome'
                     subtitle = 'Enter your email and password to enter your account.'
                     submitText = 'Login'
-                    submitAction = {() => handleLogin(email, password, navigation)}
+                    submitAction = {() => handleLogin(email, password)}
                     divider = {true}
                     extraOptions = {true}
                     footerText1 = 'Did you forget your password?'

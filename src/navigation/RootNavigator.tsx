@@ -15,8 +15,8 @@ const Stack = createNativeStackNavigator();
 const RootNavigator = () => {
 	return (
 		<Stack.Navigator>
-            <Stack.Screen name = 'SignUp' component = {SignUp} options = {{ headerShown: false}} />
             <Stack.Screen name = 'Login' component = {Login} options = {{ headerShown: false}} />
+            <Stack.Screen name = 'SignUp' component = {SignUp} options = {{ headerShown: false}} />
             <Stack.Screen name = 'ForgotPassword' component = {ForgotPassword} options = {{ headerShown: false}} />
             {/* <Stack.Screen name = 'Dashboard' component = {Dashboard} options = {{ headerShown: false}} />
             <Stack.Screen name = 'Product' component = {Product} options = {{ headerShown: false}} />

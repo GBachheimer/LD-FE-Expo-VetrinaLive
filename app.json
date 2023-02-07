@@ -2,6 +2,9 @@
   "expo": {
     "name": "vetrina_live",
     "slug": "vetrina_live",
+    "plugins": [
+      "@react-native-google-signin/google-signin"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/images/icon.png",
@@ -22,6 +25,8 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.bachheimer.vetrina_live",
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -29,6 +34,11 @@
     },
     "web": {
       "favicon": "./src/assets/images/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6776c30b-06ce-4ffc-b1e0-8c54e2d18083"
+      }
     }
   }
 }

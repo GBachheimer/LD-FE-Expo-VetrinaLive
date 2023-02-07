@@ -1,11 +1,8 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "src/config/firebase";
 
-export const handleLogin = (email: string, password: string, navigation: any): void => {
+export const handleLogin = (email: string, password: string): void => {
     signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        navigation.navigate('Dashboard');
-    })
     .catch((error) => {
         const errorCode = error.code;
         console.log(errorCode);

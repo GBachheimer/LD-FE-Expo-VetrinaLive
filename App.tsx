@@ -6,6 +6,7 @@ import useColorScheme from './src/hooks/useColorScheme';
 import Navigation from './src/navigation/Navigation';
 import 'react-native-gesture-handler';
 import { AuthProvider } from 'src/context/AuthContext';
+import 'expo-dev-client'
 
 export default function App() {
 	const isLoadingComplete = useCachedResources();

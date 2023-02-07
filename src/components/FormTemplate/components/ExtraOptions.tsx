@@ -1,15 +1,17 @@
 import React from 'react'
 import { TouchableOpacity, Image, StyleSheet } from 'react-native'
 import { Text } from 'src/components/Themed'
+import { handleGoogleLogin } from 'src/api/auth/handleGoogleLogin';
+import { handleFacebookLogin } from 'src/api/auth/handleFacebookLogin';
 
 const ExtraOptions = () => {
   return (
     <>
-        <TouchableOpacity style = {styles.extraSubmit}>
+        <TouchableOpacity style = {styles.extraSubmit} onPress = {handleFacebookLogin}>
             <Image source = {require('src/assets/images/Vector.png')} style = {styles.img}/>
             <Text style = {styles.submitText2}> Sign up with Facebook</Text>
         </TouchableOpacity>
-        <TouchableOpacity style = {styles.extraSubmit}>
+        <TouchableOpacity style = {styles.extraSubmit} onPress = {handleGoogleLogin}>
             <Image source = {require('src/assets/images/google-login.png')} style = {styles.img}/>
             <Text style = {styles.submitText2}> Sign up with Google</Text>
         </TouchableOpacity>
